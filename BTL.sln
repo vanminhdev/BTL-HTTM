@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{EA5F5881-D669-42C2-93F6-1A0BACA802B4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utils", "Utils\Utils.csproj", "{8C2EC9AE-2AD2-471E-BF7D-A9A7B30C1C3E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{292A8362-DF26-406D-83ED-F81CCB954B96}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA5F5881-D669-42C2-93F6-1A0BACA802B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA5F5881-D669-42C2-93F6-1A0BACA802B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA5F5881-D669-42C2-93F6-1A0BACA802B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA5F5881-D669-42C2-93F6-1A0BACA802B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C2EC9AE-2AD2-471E-BF7D-A9A7B30C1C3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C2EC9AE-2AD2-471E-BF7D-A9A7B30C1C3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C2EC9AE-2AD2-471E-BF7D-A9A7B30C1C3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C2EC9AE-2AD2-471E-BF7D-A9A7B30C1C3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{292A8362-DF26-406D-83ED-F81CCB954B96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{292A8362-DF26-406D-83ED-F81CCB954B96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{292A8362-DF26-406D-83ED-F81CCB954B96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{292A8362-DF26-406D-83ED-F81CCB954B96}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {12CB1293-93E3-4CB8-B62F-C900A19DC182}
+	EndGlobalSection
+EndGlobal
