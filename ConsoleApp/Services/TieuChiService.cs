@@ -1,5 +1,9 @@
 ﻿using ConsoleApp.DbContexts;
+using ConsoleTables;
 using Entities.DataEntities;
+using Entities.Dto.TieuChis;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace ConsoleApp.Services
 {
@@ -57,23 +61,43 @@ namespace ConsoleApp.Services
             TieuChi input = new();
             input.Name = Console.ReadLine();
             Console.Write("Kiểu tiêu chí: (1) Giá trị; (2) Ngoại ngữ: ");
-            int.TryParse(Console.ReadLine(), out int type);
+            _=int.TryParse(Console.ReadLine(), out int type);
             input.Type = type;
             Console.Write("Giá trị tối đa: ");
-            double.TryParse(Console.ReadLine(), out double maxValue);
+            _=double.TryParse(Console.ReadLine(), out double maxValue);
             input.GiaTriMax = maxValue;
             _dbContext.TieuChis.Add(input);
             _dbContext.SaveChanges();
         }
 
-        public void GetAll()
+        public void ShowAll()
         {
-            Console.WriteLine($"{"ID",10}|{"Tên tiêu chí",40}|{"Loại",10}|{"Giá trị tối đa",20}");
-            var list = _dbContext.TieuChis.ToList();
+            Console.WriteLine("Tiêu chí đánh giá: ");
+            var table = new ConsoleTable("Id", "Tên tiêu chí", "Giá trị tối đa", "Trọng số", "Có lấy max");
+            var list = GetAll();
             foreach (var item in list)
             {
-                Console.WriteLine($"{item.Id,10}|{item.Name,40}|{item.Type,10}|{item.GiaTriMax,20}");
+                table.AddRow(item.Id, item.Name, item.GiaTriMax.ToString("#,0.####"), item.TrongSo.ToString("0.####"), item.IsMax);
             }
+            table.Write(Format.Alternative);
+            Console.WriteLine();
+        }
+
+        public List<TieuChiDto> GetAll()
+        {
+            var tieuChiQuery = from tieuChiDanhGia in _dbContext.TieuChiDanhGias
+                               join tieuChi in _dbContext.TieuChis on tieuChiDanhGia.TieuChiId equals tieuChi.Id
+                               //where tieuChiDanhGia.DanhGiaId == danhGiaId
+                               select new TieuChiDto
+                               {
+                                   Id = tieuChi.Id,
+                                   Name = tieuChi.Name,
+                                   GiaTriMax = tieuChi.GiaTriMax,
+                                   TrongSo = tieuChiDanhGia.TrongSo,
+                                   IsMax = tieuChi.IsMax,
+                               };
+            var tieuChis = tieuChiQuery.ToList();
+            return tieuChis;
         }
     }
 }

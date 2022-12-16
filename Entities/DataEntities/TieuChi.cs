@@ -22,5 +22,7 @@ namespace Entities.DataEntities
         public double GiaTriMax { get; set; }
 
         public int Type { get; set; }
+
+        public bool IsMax { get; set; }
     }
 }

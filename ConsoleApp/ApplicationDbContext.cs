@@ -32,7 +32,7 @@ namespace ConsoleApp.DbContexts
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=.\\sqlexpress;Initial Catalog=BTL.HTTM;User ID=sa;Password=123456;TrustServerCertificate=True;");
+                optionsBuilder.UseSqlServer("Data Source=.\\sqlexpress;Initial Catalog=BTL.HTTM;Integrated Security=True;TrustServerCertificate=True;");
             }
         }
 
