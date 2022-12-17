@@ -35,56 +35,59 @@ namespace ConsoleApp
 
         static void NhapThongTinUngVien()
         {
-            ApplicationDbContext.UngViens.Add(new UngVienDto
-            {
-                Id = ApplicationDbContext.UngVienId++,
-                Ten = "Nguyễn Văn A",
-                DiaChi = "Cầu Giấy"
-            });
-
-            ApplicationDbContext.UngViens.Add(new UngVienDto
-            {
-                Id = ApplicationDbContext.UngVienId++,
-                Ten = "Nguyễn Văn B",
-                DiaChi = "Hà Đông"
-            });
-
-            ApplicationDbContext.UngViens.Add(new UngVienDto
-            {
-                Id = ApplicationDbContext.UngVienId++,
-                Ten = "Nguyễn Văn C",
-                DiaChi = "Hoàng Mai"
-            });
-
-            ApplicationDbContext.UngViens.Add(new UngVienDto
-            {
-                Id = ApplicationDbContext.UngVienId++,
-                Ten = "Nguyễn Văn D",
-                DiaChi = "Hai Bà Trưng"
-            });
-
-            //Console.Write("Nhập vào số lượng ứng viên: ");
-            //if (int.TryParse(Console.ReadLine(), out int n))
+            #region test
+            //ApplicationDbContext.UngViens.Add(new UngVienDto
             //{
-            //    Console.Write("Giá trị không hợp lệ");
-            //    return;
-            //}
+            //    Id = ApplicationDbContext.UngVienId++,
+            //    Ten = "Nguyễn Văn A",
+            //    DiaChi = "Cầu Giấy"
+            //});
 
-            //for (int i = 0; i < n; i++)
+            //ApplicationDbContext.UngViens.Add(new UngVienDto
             //{
-            //    Console.WriteLine($"Nhập vào thông tin ứng viên thứ {i + 1}");
-            //    Console.Write("Tên: ");
-            //    string ten = Console.ReadLine();
-            //    Console.Write("Địa chỉ: ");
-            //    string diaChi = Console.ReadLine();
-            //    ApplicationDbContext.UngViens.Add(new UngVienDto
-            //    {
-            //        Id = ApplicationDbContext.UngVienId++,
-            //        Ten = ten,
-            //        DiaChi = diaChi
-            //    });
-            //}
-            Console.WriteLine("Thông tin các ứng viên:");
+            //    Id = ApplicationDbContext.UngVienId++,
+            //    Ten = "Nguyễn Văn B",
+            //    DiaChi = "Hà Đông"
+            //});
+
+            //ApplicationDbContext.UngViens.Add(new UngVienDto
+            //{
+            //    Id = ApplicationDbContext.UngVienId++,
+            //    Ten = "Nguyễn Văn C",
+            //    DiaChi = "Hoàng Mai"
+            //});
+
+            //ApplicationDbContext.UngViens.Add(new UngVienDto
+            //{
+            //    Id = ApplicationDbContext.UngVienId++,
+            //    Ten = "Nguyễn Văn D",
+            //    DiaChi = "Hai Bà Trưng"
+            //});
+            #endregion
+
+            Console.Write("Nhập vào số lượng ứng viên: ");
+            string str = Console.ReadLine();
+            if (!int.TryParse(str, out int n))
+            {
+                Console.Write("Giá trị không hợp lệ");
+                throw new Exception("Giá trị không hợp lệ");
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine($"Nhập vào thông tin ứng viên thứ {i + 1}");
+                Console.Write("Tên: ");
+                string ten = Console.ReadLine();
+                Console.Write("Địa chỉ: ");
+                string diaChi = Console.ReadLine();
+                ApplicationDbContext.UngViens.Add(new UngVienDto
+                {
+                    Id = ApplicationDbContext.UngVienId++,
+                    Ten = ten,
+                    DiaChi = diaChi
+                });
+            }
+            Console.WriteLine("Thông tin các ứng viên vừa nhập:");
             ShowMaTran(ApplicationDbContext.UngViens);
         }
 
@@ -105,50 +108,52 @@ namespace ConsoleApp
                            };
             var tieuChis = tieuChiQuery.ToList();
 
-            //1
-            ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(1, 1, 10000000));
-            ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(1, 2, 4));
-            ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(1, 3, 3));
-            ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(1, 4, 3));
-            ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(1, 5, 8));
-            ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(1, 6, 1));
-            //2
-            ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(2, 1, 12000000));
-            ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(2, 2, 5));
-            ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(2, 3, 2));
-            ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(2, 4, 3));
-            ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(2, 5, 9));
-            ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(2, 6, 0));
-            //3
-            ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(3, 1, 8000000));
-            ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(3, 2, 2));
-            ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(3, 3, 6));
-            ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(3, 4, 2));
-            ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(3, 5, 8));
-            ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(3, 6, 0));
-            //4
-            ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(4, 1, 8500000));
-            ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(4, 2, 3));
-            ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(4, 3, 6));
-            ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(4, 4, 3));
-            ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(4, 5, 7));
-            ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(4, 6, 1));
+            #region test
+            ////1
+            //ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(1, 1, 10000000));
+            //ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(1, 2, 4));
+            //ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(1, 3, 3));
+            //ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(1, 4, 3));
+            //ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(1, 5, 8));
+            //ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(1, 6, 1));
+            ////2
+            //ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(2, 1, 12000000));
+            //ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(2, 2, 5));
+            //ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(2, 3, 2));
+            //ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(2, 4, 3));
+            //ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(2, 5, 9));
+            //ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(2, 6, 0));
+            ////3
+            //ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(3, 1, 8000000));
+            //ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(3, 2, 2));
+            //ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(3, 3, 6));
+            //ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(3, 4, 2));
+            //ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(3, 5, 8));
+            //ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(3, 6, 0));
+            ////4
+            //ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(4, 1, 8500000));
+            //ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(4, 2, 3));
+            //ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(4, 3, 6));
+            //ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(4, 4, 3));
+            //ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(4, 5, 7));
+            //ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto(4, 6, 1));
+            #endregion
 
-            //foreach (var ungVien in ApplicationDbContext.UngViens)
-            //{
-            //    Console.WriteLine($"Nhập thông tin cho ứng viên: {ungVien.Ten}");
-            //    foreach (var tieuChi in tieuChis)
-            //    {
-            //        Console.Write($"{tieuChi.Name}: ");
-            //        double giaTri = double.Parse(Console.ReadLine());
-            //        ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto
-            //        {
-            //            TieuChiId = tieuChi.Id,
-            //            UngVienId = ungVien.Id,
-            //            GiaTri = giaTri
-            //        });
-            //    }
-            //}
+            foreach (var ungVien in ApplicationDbContext.UngViens)
+            {
+                Console.WriteLine($"Nhập thông tin cho ứng viên: {ungVien.Ten} - Id = {ungVien.Id}");
+                foreach (var tieuChi in tieuChis)
+                {
+                    Console.Write($"{tieuChi.Name}: ");
+                    double giaTri = double.Parse(Console.ReadLine());
+                    ApplicationDbContext.UngVienTieuChis.Add(new UngVienTieuChiDto
+                    {
+                        TieuChiId = tieuChi.Id,
+                        UngVienId = ungVien.Id,
+                        GiaTri = giaTri
+                    });
+                }
+            }
 
             Console.WriteLine("Thông tin lựa chon:");
             ShowMaTran(ApplicationDbContext.UngVienTieuChis);
@@ -157,6 +162,7 @@ namespace ConsoleApp
         static void TinhToanTheoTopsis(int danhGiaId = 0)
         {
             ApplicationDbContext dbContext = new();
+            _tieuChiService.ShowAll();
             var tieuChis = _tieuChiService.GetAll();
 
             //chuẩn hoá
@@ -279,7 +285,6 @@ namespace ConsoleApp
 
         static void ChonUngVien()
         {
-            _tieuChiService.ShowAll();
             NhapThongTinUngVien();
             NhapThongTinDanhGia();
             TinhToanTheoTopsis();
@@ -289,32 +294,32 @@ namespace ConsoleApp
         {
             Console.OutputEncoding = Encoding.UTF8;
             Console.InputEncoding = Encoding.UTF8;
-            Console.BackgroundColor = ConsoleColor.White;
-            Console.ForegroundColor = ConsoleColor.Black;
+            //Console.BackgroundColor = ConsoleColor.White;
+            //Console.ForegroundColor = ConsoleColor.Black;
             (new ApplicationDbContext()).TieuChis.ToList();
-            ChonUngVien();
-            //while (true)
-            //{
-            //    int choose = ShowMenu();
-            //    if (choose == 1)
-            //    {
-            //        _tieuChiService.XuLy();
-            //    }
-            //    else if (choose == 2)
-            //    {
+            //ChonUngVien();
+            while (true)
+            {
+                int choose = ShowMenu();
+                if (choose == 1)
+                {
+                    _tieuChiService.XuLy();
+                }
+                else if (choose == 2)
+                {
 
-            //    }
-            //    else if (choose == 3)
-            //    {
+                }
+                else if (choose == 3)
+                {
 
-            //    }
-            //    else if (choose == 4)
-            //    {
-            //        ChonUngVien();
-            //    }
-            //    Console.WriteLine("Tiếp tục, nhấn enter.");
-            //    Console.ReadLine();
-            //}
+                }
+                else if (choose == 4)
+                {
+                    ChonUngVien();
+                }
+                Console.WriteLine("Tiếp tục, nhấn enter.");
+                Console.ReadLine();
+            }
         }
     }
 }

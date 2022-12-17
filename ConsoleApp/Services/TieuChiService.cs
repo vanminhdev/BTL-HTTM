@@ -41,7 +41,7 @@ namespace ConsoleApp.Services
                 int choose = ShowMenu();
                 if (choose == 1)
                 {
-                    GetAll();
+                    ShowAll();
                 }
                 else if (choose == 2)
                 {
